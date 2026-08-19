@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KrishiAI - Smart Multilingual Farmer Crop Advisory Platform</title>
+    <meta name="description" content="AI-Powered Multilingual Crop Advisory Platform for Farmers combining soil health, live weather, explainable AI, government schemes, database persistence, and AI Chatbot.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Leaflet CSS for Maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-leaf logo-icon"></i>
+                <div class="logo-text">
+                    <span class="brand-name">Krishi<span class="highlight">AI</span></span>
+                    <span class="tagline-sub">Smart Farmer Advisory</span>
+                </div>
+            </div>
+            
+            <div class="nav-controls">
+                <!-- User Account Section -->
+                <div id="auth-controls">
+                    <button id="btn-auth-open" class="icon-btn highlight-btn" onclick="openAuthModal()">
+                        <i class="fa-solid fa-user-gear"></i> <span id="lbl-auth-btn" data-i18n="auth_btn">Sign In / Register</span>
+                    </button>
+                    <div id="user-profile-badge" class="user-profile-badge" style="display:none;">
+                        <span id="user-name-display"><i class="fa-solid fa-circle-user"></i> Farmer</span>
+                        <button class="btn-xs btn-secondary" onclick="openHistoryModal()"><i class="fa-solid fa-clock-rotate-left"></i> History</button>
+                        <button class="btn-xs btn-outline" onclick="logoutUser()"><i class="fa-solid fa-right-from-bracket"></i></button>
+                    </div>
+                </div>
+
+                <!-- Voice Read Aloud Toggle -->
+                <button id="voice-btn" class="icon-btn" title="Listen / Voice Assistance">
+                    <i class="fa-solid fa-volume-high"></i>
+                    <span class="btn-label" id="lbl-voice-btn">Voice</span>
+                </button>
+
+                <!-- Language Selector -->
+                <div class="lang-selector-wrapper">
+                    <i class="fa-solid fa-globe lang-icon"></i>
+                    <select id="language-select">
+                        <option value="en" selected>English</option>
+                        <option value="hi">हिंदी (Hindi)</option>
+                        <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+                        <option value="mr">मराठी (Marathi)</option>
+                        <option value="te">తెలుగు (Telugu)</option>
+                        <option value="ta">தமிழ் (Tamil)</option>
+                        <option value="bn">বাংলা (Bengali)</option>
+                        <option value="gu">ગુજરાતી (Gujarati)</option>
+                        <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-banner">
+            <div class="hero-content">
+                <span class="badge"><i class="fa-solid fa-wand-magic-sparkles"></i> AI-Powered Agricultural Guidance</span>
+                <h1 id="hero-heading" data-i18n="app_title">Precision Crop Advisory for Higher Yield</h1>
+                <p id="hero-subheading" data-i18n="tagline">Combine your soil test values, real-time local weather, and smart AI to find the most profitable crop with transparent reasoning and subsidy support.</p>
+            </div>
+        </section>
+
+        <div class="dashboard-grid">
+            <!-- Left Side: Input Modules (Soil + Location & Weather) -->
+            <div class="input-column">
+                
+                <!-- Card 1: Soil Data Input -->
+                <div class="glass-card module-card">
+                    <div class="card-header">
+                        <div class="step-badge">1</div>
+                        <div>
+                            <h2 id="lbl-step1-title" data-i18n="step_1">1. Soil Health Parameters</h2>
+                            <p class="card-subtitle" id="lbl-step1-sub" data-i18n="step_1_sub">Enter values manually or upload your soil test lab report</p>
+                        </div>
+                    </div>
+
+                    <!-- Tabs for Input Method -->
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" id="tab-manual-btn" onclick="switchSoilTab('manual')">
+                            <i class="fa-solid fa-sliders"></i> <span data-i18n="manual_tab">Manual Sliders</span>
+                        </button>
+                        <button class="tab-btn" id="tab-upload-btn" onclick="switchSoilTab('upload')">
+                            <i class="fa-solid fa-file-arrow-up"></i> <span data-i18n="upload_tab">Upload Soil Report (OCR)</span>
+                        </button>
+                    </div>
+
+                    <!-- Tab 1: Manual Sliders Input -->
+                    <div id="tab-manual" class="tab-content active">
+                        <div class="sliders-grid">
+                            <!-- Nitrogen (N) -->
+                            <div class="input-group">
+                                <div class="input-label-row">
+                                    <label for="input-n"><i class="fa-solid fa-bolt text-warning"></i> <span data-i18n="nitrogen">Nitrogen (N)</span></label>
+                                    <span class="unit-val"><span id="val-n">90</span> kg/ha</span>
+                                </div>
+                                <input type="range" id="input-n" min="0" max="200" value="90" oninput="updateSliderVal('n', this.value)">
+                            </div>
+
+                            <!-- Phosphorus (P) -->
+                            <div class="input-group">
+                                <div class="input-label-row">
+                                    <label for="input-p"><i class="fa-solid fa-seedling text-success"></i> <span data-i18n="phosphorus">Phosphorus (P)</span></label>
+                                    <span class="unit-val"><span id="val-p">45</span> kg/ha</span>
+                                </div>
+                                <input type="range" id="input-p" min="0" max="150" value="45" oninput="updateSliderVal('p', this.value)">
+                            </div>
+
+                            <!-- Potassium (K) -->
+                            <div class="input-group">
+                                <div class="input-label-row">
+                                    <label for="input-k"><i class="fa-solid fa-shield-halved text-info"></i> <span data-i18n="potassium">Potassium (K)</span></label>
+                                    <span class="unit-val"><span id="val-k">40</span> kg/ha</span>
+                                </div>
+                                <input type="range" id="input-k" min="0" max="150" value="40" oninput="updateSliderVal('k', this.value)">
+                            </div>
+
+                            <!-- Soil pH -->
+                            <div class="input-group">
+                                <div class="input-label-row">
+                                    <label for="input-ph"><i class="fa-solid fa-flask text-accent"></i> <span data-i18n="ph_level">Soil pH Level</span></label>
+                                    <span class="unit-val"><span id="val-ph">6.5</span> pH</span>
+                                </div>
+                                <input type="range" id="input-ph" min="4.0" max="9.5" step="0.1" value="6.5" oninput="updateSliderVal('ph', this.value)">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="select-field">
+                                <label><i class="fa-solid fa-mountain"></i> <span data-i18n="soil_type">Soil Type</span></label>
+                                <select id="input-soil-type">
+                                    <option value="Alluvial" selected>Alluvial Soil</option>
+                                    <option value="Black">Black Soil (Regur)</option>
+                                    <option value="Red">Red / Laterite Soil</option>
+                                    <option value="Loamy">Loamy Soil</option>
+                                    <option value="Sandy">Sandy Loam</option>
+                                    <option value="Clay">Clay Soil</option>
+                                </select>
+                            </div>
+
+                            <div class="select-field">
+                                <label><i class="fa-solid fa-calendar-days"></i> <span data-i18n="sowing_season">Sowing Season</span></label>
+                                <select id="input-season">
+                                    <option value="Kharif" selected>Kharif (Monsoon / June-Oct)</option>
+                                    <option value="Rabi">Rabi (Winter / Oct-March)</option>
+                                    <option value="Zaid">Zaid (Summer / March-June)</option>
+                                    <option value="Perennial">Year-round / Perennial</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: Upload OCR Report -->
+                    <div id="tab-upload" class="tab-content">
+                        <div class="upload-dropzone" id="dropzone" onclick="document.getElementById('file-upload').click()">
+                            <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                            <h4>Drag & Drop Soil Lab Test Report</h4>
+                            <p>Upload PDF or image (PNG, JPG) of your Soil Health Card</p>
+                            <button class="btn btn-outline" type="button">Browse File</button>
+                            <input type="file" id="file-upload" accept=".pdf,.png,.jpg,.jpeg" style="display:none" onchange="handleFileUpload(this.files)">
+                        </div>
+
+                        <!-- Sample Report Demo Button -->
+                        <div class="sample-report-bar">
+                            <span>Don't have a report ready?</span>
+                            <button class="btn-link" onclick="loadSampleReport()"><i class="fa-solid fa-magic"></i> Click to Load Sample Lab Report</button>
+                        </div>
+
+                        <!-- Extracted Status -->
+                        <div id="ocr-status" class="ocr-status-card" style="display:none;">
+                            <div class="ocr-badge"><i class="fa-solid fa-circle-check"></i> Report Parsed Successfully</div>
+                            <div id="ocr-extracted-params" class="extracted-grid"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Location & Weather Module -->
+                <div class="glass-card module-card">
+                    <div class="card-header">
+                        <div class="step-badge">2</div>
+                        <div>
+                            <h2 id="lbl-step2-title" data-i18n="step_2">2. Farm Location & Weather</h2>
+                            <p class="card-subtitle" id="lbl-step2-sub" data-i18n="step_2_sub">Auto-detect GPS or click map pin to fetch live weather</p>
+                        </div>
+                    </div>
+
+                    <div class="location-toolbar">
+                        <button class="btn btn-secondary" onclick="detectGPSLocation()">
+                            <i class="fa-solid fa-location-crosshairs"></i> <span data-i18n="detect_gps">Detect GPS Location</span>
+                        </button>
+                        <div class="location-display">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span id="location-name">Ludhiana, Punjab, India</span>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Leaflet Map -->
+                    <div id="map"></div>
+
+                    <!-- Live Weather Widget -->
+                    <div class="weather-widget">
+                        <div class="current-weather">
+                            <div class="temp-box">
+                                <i class="fa-solid fa-temperature-three-quarters temp-icon"></i>
+                                <div>
+                                    <span class="temp-val" id="weather-temp">28°C</span>
+                                    <span class="temp-label" data-i18n="weather_temp">Temperature</span>
+                                </div>
+                            </div>
+                            <div class="weather-metrics">
+                                <div><i class="fa-solid fa-droplet"></i> <span data-i18n="weather_humidity">Humidity</span>: <strong id="weather-humidity">68%</strong></div>
+                                <div><i class="fa-solid fa-cloud-showers-heavy"></i> <span data-i18n="weather_rain">Seasonal Rain</span>: <strong id="weather-rain">140 mm</strong></div>
+                            </div>
+                        </div>
+
+                        <!-- 5 Day Forecast Cards -->
+                        <div class="forecast-row" id="forecast-row"></div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button id="btn-submit" class="btn btn-primary btn-block btn-lg" onclick="getRecommendation()">
+                    <i class="fa-solid fa-wheat-awn"></i> <span id="lbl-btn-recommend" data-i18n="get_recommendation">Generate Crop Recommendation</span>
+                </button>
+            </div>
+
+            <!-- Right Side: AI Recommendation & XAI Results -->
+            <div class="results-column">
+                
+                <!-- Welcome Placeholder State -->
+                <div id="results-placeholder" class="glass-card placeholder-card">
+                    <div class="placeholder-content">
+                        <i class="fa-solid fa-tractor placeholder-icon"></i>
+                        <h3>Ready for Advisory</h3>
+                        <p>Fill soil details or select your location on the map, then click <strong>Generate Crop Recommendation</strong> to receive AI guidance.</p>
+                    </div>
+                </div>
+
+                <!-- Active Recommendation Output Container -->
+                <div id="results-container" style="display: none;">
+                    
+                    <!-- Top Recommendation Highlight Card -->
+                    <div class="glass-card hero-rec-card">
+                        <div class="rec-badge" data-i18n="top_rec_badge"><i class="fa-solid fa-award"></i> TOP RECOMMENDED CROP</div>
+                        <div class="rec-header-content">
+                            <div class="rec-title-block">
+                                <h2 id="rec-crop-name">Rice (धान)</h2>
+                                <span class="translated-title" id="rec-translated-name">चावल (धान)</span>
+                            </div>
+                            <div class="confidence-pill">
+                                <span class="confidence-val" id="rec-confidence">94.5%</span>
+                                <span class="confidence-label" data-i18n="fit_score">Agronomic Fit</span>
+                            </div>
+                        </div>
+
+                        <!-- Top 2 Alternative Crops -->
+                        <div class="alt-crops-bar">
+                            <span class="alt-label" data-i18n="top_alts">Top Alternatives:</span>
+                            <div id="alt-crops-list" class="alt-crops-tags"></div>
+                        </div>
+                    </div>
+
+                    <!-- Explainable AI (XAI) Rationale Card -->
+                    <div class="glass-card xai-card">
+                        <div class="card-header">
+                            <i class="fa-solid fa-brain text-accent"></i>
+                            <div>
+                                <h3 id="lbl-why-recommended" data-i18n="why_recommended">Why is this crop recommended?</h3>
+                                <p class="card-subtitle" id="lbl-xai-subtitle" data-i18n="xai_subtitle">Plain-language Explainable AI (XAI) rationale</p>
+                            </div>
+                        </div>
+
+                        <div class="xai-summary-box" id="xai-summary"></div>
+
+                        <!-- Key Reasons List -->
+                        <ul class="xai-reasons-list" id="xai-reasons-list"></ul>
+
+                        <!-- XAI Radar Chart Visualizer -->
+                        <div class="chart-wrapper">
+                            <canvas id="xai-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Crop Agronomy & Care Guide Card -->
+                    <div class="glass-card agronomy-card">
+                        <div class="card-header">
+                            <i class="fa-solid fa-book-open-reader text-success"></i>
+                            <h3 data-i18n="agronomy_title">Crop Cultivation Guidelines</h3>
+                        </div>
+
+                        <div class="agronomy-grid">
+                            <div class="agronomy-item">
+                                <i class="fa-solid fa-calendar-check"></i>
+                                <div>
+                                    <label data-i18n="sowing_season">Sowing Season</label>
+                                    <span id="agro-season">Kharif (June - July)</span>
+                                </div>
+                            </div>
+
+                            <div class="agronomy-item">
+                                <i class="fa-solid fa-faucet-drip"></i>
+                                <div>
+                                    <label data-i18n="water_needs">Water Needs</label>
+                                    <span id="agro-water">High (1200 - 1500 mm)</span>
+                                </div>
+                            </div>
+
+                            <div class="agronomy-item">
+                                <i class="fa-solid fa-clock"></i>
+                                <div>
+                                    <label data-i18n="crop_duration">Crop Duration</label>
+                                    <span id="agro-duration">120 - 140 Days</span>
+                                </div>
+                            </div>
+
+                            <div class="agronomy-item">
+                                <i class="fa-solid fa-flask-vial"></i>
+                                <div>
+                                    <label data-i18n="fertilizer_advice">Fertilizer Advice</label>
+                                    <span id="agro-fertilizer">Apply NPK ratio 4:2:1 in split doses.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="care-tips-box">
+                            <strong><i class="fa-solid fa-lightbulb text-warning"></i> <span data-i18n="care_tips">Key Care & Protection Tips</span>:</strong>
+                            <p id="agro-tips">Maintain standing water during tillering. Monitor for stem borer in early stage.</p>
+                        </div>
+                    </div>
+
+                    <!-- Government Subsidy & Schemes Assistant Card -->
+                    <div class="glass-card schemes-card">
+                        <div class="card-header">
+                            <i class="fa-solid fa-hand-holding-dollar text-primary"></i>
+                            <div>
+                                <h3 id="lbl-schemes-title" data-i18n="schemes_title">Eligible Government Schemes & Subsidies</h3>
+                                <p class="card-subtitle" id="lbl-schemes-subtitle" data-i18n="schemes_subtitle">Matched state & central government support for this crop</p>
+                            </div>
+                        </div>
+
+                        <div id="schemes-list" class="schemes-grid"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating AI Farmer Chatbot Widget ("Krishi Mitra") -->
+    <div id="chatbot-widget" class="chatbot-widget">
+        <!-- Chatbot Window -->
+        <div id="chatbot-window" class="chatbot-window" style="display:none;">
+            <div class="chat-header">
+                <div class="chat-bot-info">
+                    <i class="fa-solid fa-robot bot-avatar"></i>
+                    <div>
+                        <strong data-i18n="bot_title">Krishi Mitra (AI Assistant)</strong>
+                        <span class="bot-status"><i class="fa-solid fa-circle text-success"></i> AI Assistant Online</span>
+                    </div>
+                </div>
+                <button class="chat-close-btn" onclick="toggleChatbot()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- Messages Log -->
+            <div id="chat-messages" class="chat-messages">
+                <div class="chat-bubble bot-bubble" id="chat-welcome">
+                    🙏 Hello! I am <strong>Krishi Mitra</strong>, your AI Farming Assistant. Ask me anything about fertilizers, pest control, weather tips, or government schemes!
+                </div>
+            </div>
+
+            <!-- Quick Suggestions Chips -->
+            <div class="quick-chips">
+                <button class="chip-btn" onclick="sendQuickPrompt('How to control pests?')">🐛 Pest Control</button>
+                <button class="chip-btn" onclick="sendQuickPrompt('Fertilizer dose for crop')">🧪 Fertilizer Dose</button>
+                <button class="chip-btn" onclick="sendQuickPrompt('How to apply for PM-KISAN?')">🏛️ PM-KISAN Scheme</button>
+            </div>
+
+            <!-- Chat Input Bar -->
+            <div class="chat-input-bar">
+                <input type="text" id="chat-input" placeholder="Type your question..." onkeypress="handleChatKeyPress(event)">
+                <button class="chat-send-btn" onclick="sendChatMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+
+        <!-- Chat Launcher Floating Button -->
+        <button class="chatbot-launcher-btn" onclick="toggleChatbot()">
+            <i class="fa-solid fa-comments"></i>
+            <span class="launcher-label" data-i18n="ask_bot">Ask Krishi Mitra</span>
+        </button>
+    </div>
+
+    <!-- Auth Modal Overlay -->
+    <div id="auth-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-card">
+            <button class="modal-close-btn" onclick="closeAuthModal()"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="auth-tabs">
+                <button id="auth-tab-login" class="auth-tab-btn active" onclick="switchAuthTab('login')">Sign In</button>
+                <button id="auth-tab-register" class="auth-tab-btn" onclick="switchAuthTab('register')">Register Account</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="form-login" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label>Phone Number or Email</label>
+                    <input type="text" id="login-phone" required placeholder="e.g. 9876543210 or farmer@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="login-password" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            </form>
+
+            <!-- Register Form -->
+            <form id="form-register" style="display:none;" onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="reg-name" required placeholder="Farmer Name">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number or Email</label>
+                    <input type="text" id="reg-phone" required placeholder="9876543210">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="reg-password" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Farmer History Drawer Modal -->
+    <div id="history-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-card modal-lg">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-clock-rotate-left text-success"></i> My Saved Advisory History</h3>
+                <button class="modal-close-btn" onclick="closeHistoryModal()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="history-list" class="history-list"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p><i class="fa-solid fa-leaf text-success"></i> KrishiAI Multilingual Farmer Crop Advisory Platform — Hackathon Build v2.0</p>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Custom Application Logic -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1025 @@
+{
+  "Rice": {
+    "N": [
+      60,
+      120,
+      90
+    ],
+    "P": [
+      35,
+      60,
+      48
+    ],
+    "K": [
+      35,
+      45,
+      40
+    ],
+    "temp": [
+      20,
+      37,
+      24
+    ],
+    "humidity": [
+      75,
+      95,
+      82
+    ],
+    "ph": [
+      5.0,
+      7.5,
+      6.5
+    ],
+    "rainfall": [
+      150,
+      300,
+      236
+    ],
+    "suitable_soils": [
+      "Clay",
+      "Alluvial",
+      "Loamy"
+    ],
+    "sowing_season": "Kharif (June - July)",
+    "water_requirement": "High (1200 - 1500 mm)",
+    "duration": "110 - 150 days",
+    "care_tips": "Maintain 5cm standing water during tillering. Monitor for stem borer and blast disease.",
+    "fertilizer": "Apply NPK in ratio 4:2:1. Top dress Nitrogen in 3 split doses."
+  },
+  "Wheat": {
+    "N": [
+      80,
+      140,
+      105
+    ],
+    "P": [
+      40,
+      60,
+      50
+    ],
+    "K": [
+      35,
+      55,
+      45
+    ],
+    "temp": [
+      12,
+      25,
+      18
+    ],
+    "humidity": [
+      50,
+      75,
+      60
+    ],
+    "ph": [
+      6.0,
+      7.5,
+      6.8
+    ],
+    "rainfall": [
+      50,
+      110,
+      75
+    ],
+    "suitable_soils": [
+      "Loamy",
+      "Clay",
+      "Alluvial"
+    ],
+    "sowing_season": "Rabi (October - November)",
+    "water_requirement": "Moderate (450 - 650 mm)",
+    "duration": "120 - 140 days",
+    "care_tips": "Provide 4-6 irrigations at critical stages (Crown root initiation, tillering, flowering).",
+    "fertilizer": "Apply full P and K + half N during sowing. Top dress remaining N at first irrigation."
+  },
+  "Maize (Corn)": {
+    "N": [
+      60,
+      100,
+      80
+    ],
+    "P": [
+      35,
+      60,
+      48
+    ],
+    "K": [
+      15,
+      25,
+      20
+    ],
+    "temp": [
+      18,
+      30,
+      22
+    ],
+    "humidity": [
+      55,
+      80,
+      65
+    ],
+    "ph": [
+      5.5,
+      7.2,
+      6.4
+    ],
+    "rainfall": [
+      60,
+      110,
+      85
+    ],
+    "suitable_soils": [
+      "Loamy",
+      "Alluvial",
+      "Red"
+    ],
+    "sowing_season": "Kharif / Spring",
+    "water_requirement": "Moderate (500 - 750 mm)",
+    "duration": "90 - 110 days",
+    "care_tips": "Ensure proper soil drainage. Fall armyworm control is critical in early growth stage.",
+    "fertilizer": "NPK ratio 120:60:40 kg/ha. Apply Zinc Sulfate if soil is zinc deficient."
+  },
+  "Chickpea": {
+    "N": [
+      20,
+      50,
+      40
+    ],
+    "P": [
+      55,
+      80,
+      68
+    ],
+    "K": [
+      65,
+      85,
+      78
+    ],
+    "temp": [
+      15,
+      29,
+      21
+    ],
+    "humidity": [
+      15,
+      40,
+      22
+    ],
+    "ph": [
+      6.0,
+      8.0,
+      7.4
+    ],
+    "rainfall": [
+      40,
+      90,
+      65
+    ],
+    "suitable_soils": [
+      "Black",
+      "Loamy",
+      "Sandy"
+    ],
+    "sowing_season": "Rabi (October - November)",
+    "water_requirement": "Low (250 - 400 mm)",
+    "duration": "100 - 120 days",
+    "care_tips": "Pulse crop; fixes atmospheric nitrogen. Avoid over-irrigation to prevent pod rot.",
+    "fertilizer": "Seed inoculation with Rhizobium culture. Apply P and K basally."
+  },
+  "Kidney Beans (Rajma)": {
+    "N": [
+      15,
+      40,
+      25
+    ],
+    "P": [
+      60,
+      85,
+      70
+    ],
+    "K": [
+      15,
+      25,
+      20
+    ],
+    "temp": [
+      15,
+      26,
+      20
+    ],
+    "humidity": [
+      50,
+      70,
+      60
+    ],
+    "ph": [
+      5.5,
+      6.8,
+      5.8
+    ],
+    "rainfall": [
+      90,
+      160,
+      110
+    ],
+    "suitable_soils": [
+      "Loamy",
+      "Alluvial"
+    ],
+    "sowing_season": "Rabi (Plains) / Kharif (Hills)",
+    "water_requirement": "Moderate (400 - 500 mm)",
+    "duration": "110 - 130 days",
+    "care_tips": "Does not fix nitrogen well; requires initial N boost. Keep soil moist but well drained.",
+    "fertilizer": "Apply 100 kg N, 60 kg P2O5, 40 kg K2O per hectare."
+  },
+  "Pigeonpeas (Arhar)": {
+    "N": [
+      15,
+      40,
+      20
+    ],
+    "P": [
+      50,
+      80,
+      68
+    ],
+    "K": [
+      15,
+      25,
+      20
+    ],
+    "temp": [
+      25,
+      38,
+      30
+    ],
+    "humidity": [
+      40,
+      70,
+      50
+    ],
+    "ph": [
+      5.5,
+      7.5,
+      6.6
+    ],
+    "rainfall": [
+      90,
+      220,
+      150
+    ],
+    "suitable_soils": [
+      "Black",
+      "Loamy",
+      "Alluvial"
+    ],
+    "sowing_season": "Kharif (June - July)",
+    "water_requirement": "Moderate (600 - 800 mm)",
+    "duration": "160 - 200 days",
+    "care_tips": "Deep rooted crop, excellent for intercropping with cotton or maize. Watch for pod borer.",
+    "fertilizer": "Apply 25 kg N, 50 kg P2O5 per hectare as basal dose."
+  },
+  "Mungbean": {
+    "N": [
+      15,
+      35,
+      20
+    ],
+    "P": [
+      35,
+      60,
+      48
+    ],
+    "K": [
+      15,
+      25,
+      20
+    ],
+    "temp": [
+      24,
+      38,
+      28
+    ],
+    "humidity": [
+      70,
+      90,
+      85
+    ],
+    "ph": [
+      6.2,
+      7.6,
+      6.7
+    ],
+    "rainfall": [
+      35,
+      70,
+      50
+    ],
+    "suitable_soils": [
+      "Loamy",
+      "Alluvial",
+      "Red"
+    ],
+    "sowing_season": "Zaid / Summer (March) or Kharif",
+    "water_requirement": "Low (300 - 450 mm)",
+    "duration": "60 - 75 days",
+    "care_tips": "Short duration crop, ideal for crop rotation. Susceptible to yellow mosaic virus.",
+    "fertilizer": "Apply 20 kg N and 40 kg P2O5 per hectare at sowing."
+  },
+  "Blackgram (Urad)": {
+    "N": [
+      30,
+      50,
+      40
+    ],
+    "P": [
+      50,
+      75,
+      62
+    ],
+    "K": [
+      15,
+      25,
+      19
+    ],
+    "temp": [
+      25,
+      35,
+      30
+    ],
+    "humidity": [
+      60,
+      75,
+      65
+    ],
+    "ph": [
+      6.5,
+      7.8,
+      7.1
+    ],
+    "rainfall": [
+      60,
+      85,
+      70
+    ],
+    "suitable_soils": [
+      "Black",
+      "Loamy"
+    ],
+    "sowing_season": "Kharif / Spring",
+    "water_requirement": "Low (400 - 500 mm)",
+    "duration": "70 - 90 days",
+    "care_tips": "Tolerates drought well. Spray bio-pesticides for whitefly control.",
+    "fertilizer": "Basal dose of 20 kg N + 40 kg P2O5 per hectare."
+  },
+  "Lentil (Masoor)": {
+    "N": [
+      15,
+      35,
+      20
+    ],
+    "P": [
+      55,
+      80,
+      68
+    ],
+    "K": [
+      15,
+      25,
+      19
+    ],
+    "temp": [
+      16,
+      28,
+      22
+    ],
+    "humidity": [
+      50,
+      70,
+      62
+    ],
+    "ph": [
+      5.8,
+      7.2,
+      6.5
+    ],
+    "rainfall": [
+      35,
+      55,
+      45
+    ],
+    "suitable_soils": [
+      "Loamy",
+      "Alluvial"
+    ],
+    "sowing_season": "Rabi (October - November)",
+    "water_requirement": "Low (250 - 350 mm)",
+    "duration": "110 - 130 days",
+    "care_tips": "Requires cool weather during growth and warm dry weather for maturity.",
+    "fertilizer": "Apply 20 kg N and 40 kg P2O5 per hectare at field preparation."
+  },
+  "Cotton": {
+    "N": [
+      100,
+      140,
+      120
+    ],
+    "P": [
+      35,
+      60,
+      47
+    ],
+    "K": [
+      15,
+      25,
+      19
+    ],
+    "temp": [
+      21,
+      32,
+      25
+    ],
+    "humidity": [
+      55,
+      85,
+      70
+    ],
+    "ph": [
+      5.8,
+      8.0,
+      6.9
+    ],
+    "rainfall": [
+      60,
+      110,
+      80
+    ],
+    "suitable_soils": [
+      "Black",
+      "Deep Alluvial"
+    ],
+    "sowing_season": "Kharif (April - May)",
+    "water_requirement": "High (700 - 1200 mm)",
+    "duration": "150 - 180 days",
+    "care_tips": "Black cotton soil with high moisture retention is best. Pink bollworm monitoring required.",
+    "fertilizer": "Split N application: 25% at sowing, 50% at square formation, 25% at flowering."
+  },
+  "Jute": {
+    "N": [
+      60,
+      90,
+      78
+    ],
+    "P": [
+      35,
+      55,
+      46
+    ],
+    "K": [
+      35,
+      45,
+      40
+    ],
+    "temp": [
+      23,
+      37,
+      25
+    ],
+    "humidity": [
+      70,
+      90,
+      80
+    ],
+    "ph": [
+      6.0,
+      7.2,
+      6.7
+    ],
+    "rainfall": [
+      150,
+      220,
+      175
+    ],
+    "suitable_soils": [
+      "Alluvial",
+      "Clay"
+    ],
+    "sowing_season": "Pre-Monsoon (March - April)",
+    "water_requirement": "High (1000 - 1500 mm)",
+    "duration": "120 - 150 days",
+    "care_tips": "Requires warm humid climate with abundant water for retting processes after harvest.",
+    "fertilizer": "NPK ratio 60:30:30. Apply Nitrogen in two split doses after weeding."
+  },
+  "Sugarcane": {
+    "N": [
+      110,
+      150,
+      130
+    ],
+    "P": [
+      40,
+      60,
+      50
+    ],
+    "K": [
+      40,
+      60,
+      50
+    ],
+    "temp": [
+      21,
+      35,
+      27
+    ],
+    "humidity": [
+      70,
+      88,
+      80
+    ],
+    "ph": [
+      6.0,
+      7.5,
+      6.8
+    ],
+    "rainfall": [
+      150,
+      250,
+      200
+    ],
+    "suitable_soils": [
+      "Deep Alluvial",
+      "Loamy",
+      "Black"
+    ],
+    "sowing_season": "Autumn / Spring",
+    "water_requirement": "Very High (1500 - 2500 mm)",
+    "duration": "300 - 365 days",
+    "care_tips": "Long duration crop. Trash mulching helps retain soil moisture and suppress weeds.",
+    "fertilizer": "250 kg N, 75 kg P2O5, 110 kg K2O per hectare in split doses."
+  },
+  "Banana": {
+    "N": [
+      80,
+      120,
+      100
+    ],
+    "P": [
+      70,
+      95,
+      82
+    ],
+    "K": [
+      45,
+      55,
+      50
+    ],
+    "temp": [
+      20,
+      33,
+      27
+    ],
+    "humidity": [
+      75,
+      85,
+      80
+    ],
+    "ph": [
+      5.5,
+      7.5,
+      6.5
+    ],
+    "rainfall": [
+      90,
+      120,
+      105
+    ],
+    "suitable_soils": [
+      "Deep Loamy",
+      "Alluvial"
+    ],
+    "sowing_season": "Perennial (Year round planting)",
+    "water_requirement": "High (1200 - 2000 mm)",
+    "duration": "300 - 360 days",
+    "care_tips": "Heavy feeder crop; requires regular irrigation and wind protection. Desuckering is key.",
+    "fertilizer": "Apply 200g N, 50g P, 300g K per plant in 4 split doses."
+  },
+  "Mango": {
+    "N": [
+      15,
+      40,
+      20
+    ],
+    "P": [
+      15,
+      35,
+      25
+    ],
+    "K": [
+      25,
+      35,
+      30
+    ],
+    "temp": [
+      24,
+      35,
+      31
+    ],
+    "humidity": [
+      45,
+      65,
+      52
+    ],
+    "ph": [
+      5.5,
+      7.5,
+      6.4
+    ],
+    "rainfall": [
+      80,
+      120,
+      95
+    ],
+    "suitable_soils": [
+      "Deep Alluvial",
+      "Loamy",
+      "Red"
+    ],
+    "sowing_season": "Monsoon (July - August)",
+    "water_requirement": "Moderate (750 - 1200 mm)",
+    "duration": "Perennial orchard crop",
+    "care_tips": "Requires dry spell before flowering. Prune dead wood after harvest.",
+    "fertilizer": "Apply 1kg N, 0.5kg P2O5, 1kg K2O per mature tree annually."
+  },
+  "Pomegranate": {
+    "N": [
+      15,
+      40,
+      22
+    ],
+    "P": [
+      15,
+      35,
+      20
+    ],
+    "K": [
+      35,
+      45,
+      40
+    ],
+    "temp": [
+      18,
+      35,
+      24
+    ],
+    "humidity": [
+      35,
+      55,
+      45
+    ],
+    "ph": [
+      6.5,
+      8.2,
+      7.2
+    ],
+    "rainfall": [
+      35,
+      70,
+      48
+    ],
+    "suitable_soils": [
+      "Loamy",
+      "Sandy",
+      "Black"
+    ],
+    "sowing_season": "Monsoon / Autumn",
+    "water_requirement": "Low to Moderate (500 - 750 mm)",
+    "duration": "Perennial (Fruiting in 3rd year)",
+    "care_tips": "Drip irrigation recommended. Bahar treatment is essential to regulate flowering.",
+    "fertilizer": "600g N, 200g P2O5, 600g K2O per plant per year."
+  },
+  "Watermelon": {
+    "N": [
+      80,
+      120,
+      98
+    ],
+    "P": [
+      10,
+      30,
+      18
+    ],
+    "K": [
+      45,
+      55,
+      50
+    ],
+    "temp": [
+      24,
+      35,
+      26
+    ],
+    "humidity": [
+      80,
+      90,
+      85
+    ],
+    "ph": [
+      6.0,
+      7.0,
+      6.5
+    ],
+    "rainfall": [
+      40,
+      60,
+      50
+    ],
+    "suitable_soils": [
+      "Sandy",
+      "Sandy Loam"
+    ],
+    "sowing_season": "Zaid / Summer (Jan - March)",
+    "water_requirement": "Moderate (400 - 600 mm)",
+    "duration": "80 - 100 days",
+    "care_tips": "Requires dry warm climate and sandy soil for root expansion. Avoid fruit touching wet soil.",
+    "fertilizer": "100 kg N, 50 kg P2O5, 50 kg K2O per hectare."
+  },
+  "Muskmelon": {
+    "N": [
+      80,
+      120,
+      100
+    ],
+    "P": [
+      10,
+      30,
+      18
+    ],
+    "K": [
+      45,
+      55,
+      50
+    ],
+    "temp": [
+      27,
+      35,
+      29
+    ],
+    "humidity": [
+      90,
+      95,
+      92
+    ],
+    "ph": [
+      6.0,
+      7.2,
+      6.6
+    ],
+    "rainfall": [
+      20,
+      35,
+      25
+    ],
+    "suitable_soils": [
+      "Sandy",
+      "Loamy"
+    ],
+    "sowing_season": "Zaid / Summer (Feb - March)",
+    "water_requirement": "Low to Moderate (350 - 500 mm)",
+    "duration": "75 - 90 days",
+    "care_tips": "High sunlight promotes sweetness (Brix rating). Reduce irrigation prior to harvest.",
+    "fertilizer": "80 kg N, 40 kg P, 40 kg K per hectare."
+  },
+  "Apple": {
+    "N": [
+      15,
+      40,
+      20
+    ],
+    "P": [
+      120,
+      145,
+      135
+    ],
+    "K": [
+      195,
+      205,
+      200
+    ],
+    "temp": [
+      7,
+      24,
+      15
+    ],
+    "humidity": [
+      55,
+      75,
+      65
+    ],
+    "ph": [
+      5.5,
+      6.8,
+      6.0
+    ],
+    "rainfall": [
+      100,
+      130,
+      112
+    ],
+    "suitable_soils": [
+      "Loamy",
+      "Clay"
+    ],
+    "sowing_season": "Winter (Dec - Feb dormant planting)",
+    "water_requirement": "Moderate (800 - 1000 mm)",
+    "duration": "Perennial temperate crop",
+    "care_tips": "Requires 1000+ chilling hours below 7\u00b0C for proper flower bud dormancy release.",
+    "fertilizer": "Apply organic manure + 500g N, 250g P, 500g K per mature tree."
+  },
+  "Orange / Citrus": {
+    "N": [
+      15,
+      40,
+      22
+    ],
+    "P": [
+      10,
+      30,
+      18
+    ],
+    "K": [
+      5,
+      15,
+      10
+    ],
+    "temp": [
+      12,
+      33,
+      23
+    ],
+    "humidity": [
+      85,
+      95,
+      91
+    ],
+    "ph": [
+      5.5,
+      7.5,
+      6.4
+    ],
+    "rainfall": [
+      100,
+      120,
+      110
+    ],
+    "suitable_soils": [
+      "Loamy",
+      "Deep Alluvial",
+      "Red"
+    ],
+    "sowing_season": "Monsoon (June - August)",
+    "water_requirement": "Moderate (900 - 1200 mm)",
+    "duration": "Perennial orchard crop",
+    "care_tips": "Sensitive to waterlogging and soil salinity. Micronutrients (Zinc, Iron) spray yields high quality fruit.",
+    "fertilizer": "600g N, 200g P2O5, 300g K2O per tree per year."
+  },
+  "Papaya": {
+    "N": [
+      30,
+      60,
+      48
+    ],
+    "P": [
+      40,
+      65,
+      52
+    ],
+    "K": [
+      45,
+      55,
+      50
+    ],
+    "temp": [
+      23,
+      35,
+      30
+    ],
+    "humidity": [
+      80,
+      95,
+      90
+    ],
+    "ph": [
+      6.0,
+      7.0,
+      6.5
+    ],
+    "rainfall": [
+      140,
+      250,
+      200
+    ],
+    "suitable_soils": [
+      "Loamy",
+      "Alluvial"
+    ],
+    "sowing_season": "Spring (Feb - March) / Monsoon",
+    "water_requirement": "Moderate to High (1000 - 1500 mm)",
+    "duration": "12 - 14 months (Fruiting starts in 8th month)",
+    "care_tips": "Extremely sensitive to root rot from standing water; plant on raised mounds.",
+    "fertilizer": "250g N, 250g P, 500g K per plant per year in 6 split doses."
+  },
+  "Coconut": {
+    "N": [
+      15,
+      40,
+      22
+    ],
+    "P": [
+      10,
+      30,
+      18
+    ],
+    "K": [
+      25,
+      35,
+      30
+    ],
+    "temp": [
+      25,
+      35,
+      27
+    ],
+    "humidity": [
+      90,
+      98,
+      95
+    ],
+    "ph": [
+      5.2,
+      7.5,
+      6.2
+    ],
+    "rainfall": [
+      130,
+      230,
+      175
+    ],
+    "suitable_soils": [
+      "Sandy",
+      "Alluvial",
+      "Red"
+    ],
+    "sowing_season": "Monsoon (May - June)",
+    "water_requirement": "High (1500 - 2300 mm)",
+    "duration": "Perennial plantation (Lifespan 60+ yrs)",
+    "care_tips": "Thrives in coastal tropical climate. Apply Common Salt (NaCl) to improve leaf growth.",
+    "fertilizer": "500g N, 320g P2O5, 1200g K2O per palm per year."
+  },
+  "Coffee": {
+    "N": [
+      80,
+      120,
+      100
+    ],
+    "P": [
+      15,
+      35,
+      28
+    ],
+    "K": [
+      25,
+      35,
+      30
+    ],
+    "temp": [
+      20,
+      28,
+      24
+    ],
+    "humidity": [
+      55,
+      75,
+      65
+    ],
+    "ph": [
+      5.5,
+      6.5,
+      6.0
+    ],
+    "rainfall": [
+      130,
+      190,
+      158
+    ],
+    "suitable_soils": [
+      "Red Loamy",
+      "Clay"
+    ],
+    "sowing_season": "Monsoon (June - July)",
+    "water_requirement": "High (1500 - 2000 mm)",
+    "duration": "Perennial plantation crop",
+    "care_tips": "Grown under shade trees (Silver Oak / Erythrina). Blossom showers in March trigger flowering.",
+    "fertilizer": "140 kg N, 90 kg P2O5, 140 kg K2O per hectare."
+  }
+}
